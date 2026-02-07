@@ -1,5 +1,11 @@
 import api from "./api";
 
+// Enhanced ticket management service with comprehensive CRUD operations
+// TODO: Add ticket template system for common issues
+// TODO: Implement ticket merge and split functionality
+// TODO: Add support for ticket attachments and file uploads
+// TODO: Implement real-time ticket updates via WebSocket
+
 // Enum-like objects for status, priority, etc. (adjust as per your backend)
 export const TicketStatus = {
   NEW: "new",

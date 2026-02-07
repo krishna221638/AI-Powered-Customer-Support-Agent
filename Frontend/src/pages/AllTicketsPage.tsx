@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuthStore } from "../stores/authStore";
+// Enhanced ticket listing and management interface
+// TODO: Add advanced filtering by date range, department, and agent
+// TODO: Implement drag-and-drop ticket assignment
+// TODO: Add bulk operations for ticket status updates
+// TODO: Implement ticket analytics and reporting dashboard
 import {
   getTickets,
   Ticket,
@@ -76,7 +81,7 @@ const AllTicketsPage: React.FC = () => {
           ? user.department_id || undefined
           : filters.departmentId,
     }),
-    [user, filters]
+    [user, filters],
   );
 
   const {
@@ -129,7 +134,7 @@ const AllTicketsPage: React.FC = () => {
       toast.error(
         `Failed to add note to ticket ${variables.ticketId}: ${
           error.response?.data?.detail || error.message
-        }`
+        }`,
       );
     },
   });
@@ -152,7 +157,7 @@ const AllTicketsPage: React.FC = () => {
       toast.error(
         `Failed to update ticket ${variables.ticketId}: ${
           error.response?.data?.detail || error.message
-        }`
+        }`,
       );
     },
   });
@@ -205,7 +210,7 @@ const AllTicketsPage: React.FC = () => {
   const handleManageFormChange = (
     e: React.ChangeEvent<
       HTMLSelectElement | HTMLInputElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setManageFormData((prev) => ({
@@ -247,7 +252,7 @@ const AllTicketsPage: React.FC = () => {
         page: 1,
       }));
     },
-    []
+    [],
   );
 
   const handleSort = useCallback((sortKey: string) => {
@@ -357,7 +362,10 @@ const AllTicketsPage: React.FC = () => {
             </thead>
             <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
               {tickets.map((ticket: Ticket) => (
-                <tr key={ticket.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
+                <tr
+                  key={ticket.id}
+                  className="hover:bg-gray-50 dark:hover:bg-gray-700"
+                >
                   <td
                     className="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300"
                     title={ticket.subject}

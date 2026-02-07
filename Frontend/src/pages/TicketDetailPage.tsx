@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
+// Comprehensive ticket detail management interface
+// TODO: Add ticket timeline with interaction history visualization
+// TODO: Implement inline editing for all ticket properties
+// TODO: Add collaboration tools for team communication
+// TODO: Implement customer communication portal integration
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   getTicketById,
@@ -37,7 +43,7 @@ const TicketDetailPage: React.FC = () => {
   const { user } = useAuthStore();
 
   const [selectedStatus, setSelectedStatus] = useState<TicketStatusType | "">(
-    ""
+    "",
   );
   const [replyContent, setReplyContent] = useState("");
   const [isGeneratingReply, setIsGeneratingReply] = useState(false);
@@ -66,13 +72,13 @@ const TicketDetailPage: React.FC = () => {
       queryClient.invalidateQueries({ queryKey: ["ticket", ticketId] });
       queryClient.invalidateQueries({ queryKey: ["allTickets"] });
       toast.success(
-        `Ticket status updated to ${formatTicketStatus(updatedTicket.status)}`
+        `Ticket status updated to ${formatTicketStatus(updatedTicket.status)}`,
       );
       if (ticket) setSelectedStatus(updatedTicket.status); // Update local state after successful mutation
     },
     onError: (err: any) => {
       toast.error(
-        err.response?.data?.detail || "Failed to update ticket status"
+        err.response?.data?.detail || "Failed to update ticket status",
       );
     },
   });
@@ -168,7 +174,7 @@ const TicketDetailPage: React.FC = () => {
   };
 
   const getStatusBadgeClass = (
-    status: TicketStatusType | undefined
+    status: TicketStatusType | undefined,
   ): string => {
     if (!status) return "bg-gray-100 text-gray-800";
     switch (status) {
@@ -193,7 +199,7 @@ const TicketDetailPage: React.FC = () => {
   };
 
   const getPriorityBadgeClass = (
-    priority: TicketPriorityType | null | undefined
+    priority: TicketPriorityType | null | undefined,
   ): string => {
     if (!priority) return "bg-gray-100 text-gray-800";
     switch (priority) {
@@ -284,7 +290,7 @@ const TicketDetailPage: React.FC = () => {
   const sortedInteractions = ticket.interactions
     ? [...ticket.interactions].sort(
         (a, b) =>
-          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime(),
       )
     : [];
 
@@ -303,14 +309,14 @@ const TicketDetailPage: React.FC = () => {
         <div className="flex flex-col items-start md:items-end space-y-2 text-xs flex-shrink-0">
           <div
             className={`px-3 py-1.5 rounded-full font-semibold tracking-wide ${getStatusBadgeClass(
-              ticket.status
+              ticket.status,
             )}`}
           >
             {formatTicketStatus(ticket.status)}
           </div>
           <div
             className={`px-3 py-1.5 rounded-full font-semibold tracking-wide ${getPriorityBadgeClass(
-              ticket.priority
+              ticket.priority,
             )}`}
           >
             Priority: {ticket.priority || "N/A"}
@@ -395,7 +401,7 @@ const TicketDetailPage: React.FC = () => {
                 <div className="text-center my-3">
                   <span
                     className={`text-xs px-3 py-1.5 rounded-full shadow-sm ${getInteractionMessageStyle(
-                      interaction.interaction_type
+                      interaction.interaction_type,
                     )}`}
                   >
                     {interaction.content}{" "}
@@ -407,7 +413,7 @@ const TicketDetailPage: React.FC = () => {
               ) : (
                 <div
                   className={`border rounded-lg p-3.5 shadow-sm ${getInteractionMessageStyle(
-                    interaction.interaction_type
+                    interaction.interaction_type,
                   )}`}
                 >
                   <div className="flex justify-between items-center mb-1">
@@ -546,7 +552,7 @@ const TicketDetailPage: React.FC = () => {
                   {item.value}
                 </dd>
               </div>
-            ) : null
+            ) : null,
           )}
         </dl>
       </div>

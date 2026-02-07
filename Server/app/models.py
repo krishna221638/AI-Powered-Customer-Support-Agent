@@ -28,6 +28,9 @@ class TicketStatusEnum(str, enum.Enum):
     resolved_by_ai = "resolved_by_ai"
     resolved_manually = "resolved_manually"
     closed = "closed"
+    # TODO: Add status for escalated tickets
+    # TODO: Implement status for tickets requiring external validation
+    # TODO: Add status tracking for ticket reassignment
 
 class PriorityEnum(str, enum.Enum):
     Critical = "Critical"
