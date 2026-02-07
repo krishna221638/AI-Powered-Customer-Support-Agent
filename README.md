@@ -236,7 +236,6 @@ The system automatically creates the necessary tables:
 1. **Create SuperAdmin Account**
 
    ```bash
-   # Use Swagger UI at http://127.0.0.1:8000/docs
    # POST /auth/register-superadmin
    {
      "username": "admin",
@@ -254,7 +253,6 @@ The system automatically creates the necessary tables:
      "email": "admin@company.com",
      "password": "company_password",
      "company_name": "Acme Corp",
-     "max_tokens": 1000000
    }
    ```
 
