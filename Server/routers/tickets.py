@@ -8,9 +8,10 @@ classification and reply generation.
 
 # Enhanced ticket creation and management system features:
 # TODO: Add advanced ticket filtering and search capabilities
-# TODO: Implement ticket assignment workflow and notifications
+# TODO: Implement intelligent employee assignment based on skills and workload
 # TODO: Add bulk ticket operations for administrative efficiency
-# TODO: Implement ticket escalation rules and automation
+# TODO: Implement ticket escalation rules and automated reassignment
+# TODO: Add role-based ticket visibility and access control
 
 
 from typing import List, Optional, Dict, Any

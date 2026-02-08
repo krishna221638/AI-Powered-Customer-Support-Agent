@@ -1,5 +1,11 @@
-import { create } from 'zustand';
-import { User } from '../services/authService'; // Assuming authService is in ../services
+import { create } from "zustand";
+import { User } from "../services/authService"; // Assuming authService is in ../services
+
+// Enhanced role-based state management:
+// TODO: Add role-specific UI permissions state
+// TODO: Implement employee assignment preferences storage
+// TODO: Add department context for role-based operations
+// TODO: Implement role-based navigation and access control
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -18,5 +24,6 @@ export const useAuthStore = create<AuthState>((set) => ({
   setUser: (user) => set({ user }),
   setIsAuthenticated: (isAuthenticated) => set({ isAuthenticated }),
   setSelectedCompanyId: (companyId) => set({ selectedCompanyId: companyId }), // Renamed
-  clearAuth: () => set({ isAuthenticated: false, user: null, selectedCompanyId: null }), // Updated
-})); 
+  clearAuth: () =>
+    set({ isAuthenticated: false, user: null, selectedCompanyId: null }), // Updated
+}));

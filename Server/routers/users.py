@@ -4,6 +4,11 @@ Router for user management endpoints.
 Provides API endpoints for retrieving, updating, and deleting users.
 Access to these operations is strictly role-based, primarily for Admins and SuperAdmins.
 """
+# Enhanced employee role management features:
+# TODO: Implement role-based user assignment to departments
+# TODO: Add employee skill-based ticket routing
+# TODO: Implement workload balancing for employee assignments
+# TODO: Add employee performance tracking for assignment optimization
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session

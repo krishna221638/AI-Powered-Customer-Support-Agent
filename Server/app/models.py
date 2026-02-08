@@ -17,6 +17,11 @@ class UserRoleEnum(str, enum.Enum):
     superAdmin = "superAdmin"
     admin = "admin"
     employee = "employee"
+    # Enhanced role hierarchy features:
+    # TODO: Add team lead role for departmental supervision
+    # TODO: Implement role-based ticket assignment priorities
+    # TODO: Add custom permissions per employee role
+    # TODO: Implement role delegation and temporary permissions
 
 class TicketStatusEnum(str, enum.Enum):
     new = "new"

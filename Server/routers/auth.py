@@ -5,6 +5,12 @@ Provides endpoints for user login, registration, and retrieving current user det
 It handles JWT creation, password hashing, and role-based access for registration.
 """
 
+# Enhanced role-based authentication system:
+# TODO: Implement granular permission checks for employee actions
+# TODO: Add session management with role-based token expiration
+# TODO: Implement role inheritance and permission cascading
+# TODO: Add audit logging for role changes and access attempts
+
 
 from datetime import datetime, timedelta
 from typing import Optional
